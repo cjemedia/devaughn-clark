@@ -1,26 +1,182 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Sage/Olive Palette */
+  --cream: #E9F5DB;
+  --sage-100: #CFE1B9;
+  --sage-200: #B5C99A;
+  --sage-300: #97A97C;
+  --sage-400: #87986A;
+  --sage-500: #718355;
+  
+  /* Neutrals */
+  --white: #FEFEFE;
+  --off-white: #F8F8F6;
+  --charcoal: #1A1A1A;
+  --charcoal-light: #2D2D2D;
+  --gray: #6B6B6B;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Outfit', sans-serif;
+  background: var(--white);
+  color: var(--charcoal);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--sage-200);
+  color: var(--charcoal);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Utility Classes */
+@layer utilities {
+  .font-cormorant {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  
+  .font-outfit {
+    font-family: 'Outfit', sans-serif;
+  }
+  
+  .text-charcoal {
+    color: var(--charcoal);
+  }
+  
+  .text-gray {
+    color: var(--gray);
+  }
+  
+  .text-sage-500 {
+    color: var(--sage-500);
+  }
+  
+  .text-sage-400 {
+    color: var(--sage-400);
+  }
+  
+  .text-sage-300 {
+    color: var(--sage-300);
+  }
+  
+  .text-sage-200 {
+    color: var(--sage-200);
+  }
+  
+  .bg-charcoal {
+    background-color: var(--charcoal);
+  }
+  
+  .bg-charcoal-light {
+    background-color: var(--charcoal-light);
+  }
+  
+  .bg-cream {
+    background-color: var(--cream);
+  }
+  
+  .bg-off-white {
+    background-color: var(--off-white);
+  }
+  
+  .bg-sage-100 {
+    background-color: var(--sage-100);
+  }
+  
+  .bg-sage-200 {
+    background-color: var(--sage-200);
+  }
+  
+  .bg-sage-500 {
+    background-color: var(--sage-500);
+  }
+  
+  .border-sage-200 {
+    border-color: var(--sage-200);
+  }
+  
+  .border-sage-500 {
+    border-color: var(--sage-500);
+  }
+}
+
+/* Image hover zoom effect */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Smooth link underline animation */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Form focus styles */
+input:focus, 
+textarea:focus, 
+select:focus {
+  outline: none;
+  border-color: var(--sage-500) !important;
+  box-shadow: 0 0 0 3px rgba(113, 131, 85, 0.15);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--off-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sage-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sage-500);
 }
