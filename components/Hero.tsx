@@ -88,7 +88,7 @@ export default function Hero() {
             </a>
             <a 
               href="#speaking" 
-              className="inline-flex items-center gap-3 text-white border border-white/40 px-7 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300"
+              className="hidden md:inline-flex items-center gap-3 text-white border border-white/40 px-7 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300"
             >
               View Keynotes
             </a>
@@ -100,7 +100,7 @@ export default function Hero() {
       
       {/* Scroll Indicator */}
       <div 
-        className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-700 ${
+        className={`hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-700 ${
           isLoaded ? 'opacity-100' : 'opacity-0'
         }`}
         style={{ transitionDelay: '1200ms' }}
